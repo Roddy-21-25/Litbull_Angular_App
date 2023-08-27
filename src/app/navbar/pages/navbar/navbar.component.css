@@ -1,0 +1,13 @@
+.title-navbar{
+    font-weight: 800;
+    color: rgb(117, 91, 78);
+}
+
+.url-nav{
+    font-weight: 500;
+    color: rgb(117, 91, 78);
+}
+
+.url-nav:hover{
+    color: rgb(83, 64, 55);
+}

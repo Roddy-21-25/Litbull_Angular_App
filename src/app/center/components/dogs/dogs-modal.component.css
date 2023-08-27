@@ -1,0 +1,18 @@
+.modal-name{
+    margin: 10px;
+}
+
+.modal-img{
+    border-radius: 32px;
+    margin: 10px;
+}
+
+.box-modal{
+    padding: 15px;
+    border: solid 2px rgb(146, 122, 111);
+    border-radius: 10px;
+}
+
+.modal-data{
+    font-size: 14px;
+}

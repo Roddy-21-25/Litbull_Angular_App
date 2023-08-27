@@ -1,0 +1,387 @@
+<!-- 
+    0 - Desactivar las llamas al API para que no se gasten - [DONE]
+    1 - Re hacer el Form - [DONE]
+    2 - Validar el form - [DONE]
+    3 - Generar el validador para el Boton  - [DONE]
+    4 - Crear archivo CSS para los perros.  - [DONE]
+    5 - Elegir el desing de las card 3x3  - [DONE]
+    6 - Crear un modelo con datos propios  - [DONE]
+    7 - Reemplazar con los datos de las api  - [DONE]
+ -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form #f="ngForm" (ngSubmit)="f.form.valid && search()">
+        <div class="search-section text-center m-4">
+          <div class="box-input">
+            <label class="search-title">Write the Name Of the Dog...</label>
+          </div>
+          <div class="alert alert-primary mt-2" role="alert">
+            <i class="fa-solid fa-bell"></i>Don't write space in the beginning and the last of the name of the Dog
+          </div>
+          <p>
+            Here is a list of Dogs: <a class="list-of-dogs" href="https://www.akc.org/dog-breeds/" target="_blank">List of Dogs</a>
+          </p>
+          <div class="box-text mt-3">
+            <input
+              type="text"
+              name="search-dog-name"
+              id="search-dog-id"
+              class="form-control"
+              [(ngModel)]="name"
+              placeholder="Name of the Dog..."
+              required
+            />
+            <button type="submit" class="btn-search">
+              <span class="buttton-text">Search Dog</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <ul class="list-unstyled d-flex flex-wrap">
+          <li *ngFor="let data of Data; let i = index" class="col-sm-6">
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="staticBackdrop"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      <i class="fa-solid fa-book"></i> Dog Info
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h4 class="card-title text-center">
+                          <i class="fa-solid fa-dog modal-name"></i
+                          >{{ nameDog }}
+                        </h4>
+                        <img
+                          class="card-img-top img-card modal-img"
+                          [src]="UrlDof"
+                          alt="Card image cap"
+                        />
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="box-modal">
+                          <div class="list-box mt-3">
+                            <div class="modal-data data table-responsive">
+                              <table border="1" class="table table-bordered">
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ min_height_female }} in
+                                  </td>
+                                  <td class="text-center">
+                                    min height (Females).
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ min_height_male }} in
+                                  </td>
+                                  <td class="text-center">
+                                    min height (Male).
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ max_height_female }} in
+                                  </td>
+                                  <td class="text-center">
+                                    max height (Females).
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ max_height_male }} in
+                                  </td>
+                                  <td class="text-center">
+                                    max height (Male).
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ min_weight_male }} lb
+                                  </td>
+                                  <td class="text-center">
+                                    min weight (Male).
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ min_weight_female }} lb
+                                  </td>
+                                  <td class="text-center">
+                                    min weight (Female).
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ max_weight_male }} lb
+                                  </td>
+                                  <td class="text-center">
+                                    max weight (Male).
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ max_weight_female }} lb
+                                  </td>
+                                  <td class="text-center">
+                                    max weight (Female).
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ min_life_expectancy }} years
+                                  </td>
+                                  <td class="text-center">
+                                    min life expectancy.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ max_life_expectancy }} years
+                                  </td>
+                                  <td class="text-center">
+                                    max life expectancy.
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ shedding }}
+                                  </td>
+                                  <td class="text-center">
+                                    amount of hair the breed sheds.<br />⭐ 1 is
+                                    no hair || 5 is a lot of hair ⭐
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ barking }}
+                                  </td>
+                                  <td class="text-center">
+                                    How vocal is the breed.<br />⭐ 1 is min ||
+                                    5 is max barking. ⭐
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ good_with_children }}
+                                  </td>
+                                  <td class="text-center">
+                                    How good is it with children?<br />⭐ 1 is
+                                    bad || 5 is Good. ⭐
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ good_with_other_dogs }}
+                                  </td>
+                                  <td class="text-center">
+                                    How good is it with other dogs?<br />⭐ 1 is
+                                    bad || 5 is Good. ⭐
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ drooling }}
+                                  </td>
+                                  <td class="text-center">
+                                    how much he drools<br />⭐ 1 is a little ||
+                                    5 is a lot. ⭐
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ coat_length }}in
+                                  </td>
+                                  <td class="text-center">
+                                    dog tail measurement
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="p-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                  </td>
+                                  <td class="text-center">
+                                    {{ playfulness }}
+                                  </td>
+                                  <td class="text-center">
+                                    how playful is he<br />⭐ 1 is a little || 5
+                                    is a lot. ⭐
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="box-button pe-4 ps-4"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <!-- Card -->
+              <div class="card card-styles m-4">
+                <!-- Card image -->
+                <div class="view overlay">
+                  <img
+                    class="card-img-top img-card"
+                    [src]="data.image_link"
+                    alt="Card image cap"
+                  />
+                  <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body">
+                  <!-- Title -->
+                  <h4 class="card-title">
+                    <i class="fa-solid fa-dog"></i>{{ data.name }}
+                  </h4>
+                  <!-- Text -->
+                  <div class="list-box mt-3">
+                    <div class="data table-responsive">
+                      <table border="1" class="table table-bordered">
+                        <tr>
+                          <td class="p-1"><i class="fa-solid fa-paw"></i></td>
+                          <td class="p-1 text-center">
+                            {{ data.trainability }}
+                          </td>
+                          <td class="p-1 text-center">
+                            How easy it is to train.<br />⭐ 1 is very difficult
+                            || 5 very easy to train ⭐
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="p-1"><i class="fa-solid fa-paw"></i></td>
+                          <td class="p-1 text-center">{{ data.energy }}</td>
+                          <td class="p-1 text-center">
+                            How much energy it has.<br />⭐ 1 is low || 5 high
+                            energy ⭐
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="p-1"><i class="fa-solid fa-paw"></i></td>
+                          <td class="p-1 text-center">
+                            {{ data.protectiveness }}
+                          </td>
+                          <td class="p-1 text-center">
+                            How likely it is to protect you<br />⭐ 1 is minimal
+                            || 5 maximum interest ⭐
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="p-1"><i class="fa-solid fa-paw"></i></td>
+                          <td class="p-1 text-center">
+                            {{ data.good_with_strangers }}
+                          </td>
+                          <td class="p-1 text-center">
+                            How likely it is to alert strangers<br />⭐ 1 is
+                            minimal || 5 maximum alerting ⭐
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- Button -->
+                  <div
+                    class="box-button btn d-grid gap-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    (click)="LookDog(data.name)"
+                  >
+                    More Info<i class="fa-solid fa-arrow-right-long"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

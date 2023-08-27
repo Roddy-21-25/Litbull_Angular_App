@@ -1,0 +1,86 @@
+.btn-search {
+  border: solid 2px rgb(83, 64, 55);
+  background-color: white;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 32px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-search:hover {
+  background-color: rgb(83, 64, 55);
+}
+
+button {
+  border: none;
+}
+
+.buttton-text {
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  color: rgb(83, 64, 55);
+  transition: color 0.3s ease;
+}
+
+.box-button {
+  background-color: rgb(83, 64, 55);
+  border-radius: 32px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.box-button:hover {
+  background-color: rgb(48, 36, 31);
+}
+
+.btn-search:hover .buttton-text {
+  color: white;
+}
+
+.search-title {
+  font-weight: 600;
+}
+
+.card-styles {
+  width: 90%;
+  height: auto;
+}
+
+.img-card {
+  transition: filter 0.5s ease;
+}
+
+.img-card:hover {
+  filter: brightness(1.2);
+}
+
+/* Icon */
+.fa-dog {
+  margin-right: 15px;
+  color: rgb(146, 122, 111);
+}
+
+.fa-bell{
+  margin-right: 15px;
+}
+
+.fa-paw {
+  margin-right: 15px;
+  color: rgb(146, 122, 111);
+}
+
+.data {
+  margin-bottom: 10px;
+}
+
+.fa-book {
+  margin-right: 15px;
+  color: rgb(146, 122, 111);
+}
+
+.list-of-dogs{
+    text-decoration: none;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
